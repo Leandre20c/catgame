@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmaoyns2v55e0"]
+
+[ext_resource type="Texture2D" uid="uid://bdwcrugqoa0vb" path="res://art/fish_sprite_sheet.png" id="1_6b71h"]
+[ext_resource type="Script" path="res://scripts/colletable_fish.gd" id="1_ovq8m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytauf"]
+size = Vector2(14, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5q4w"]
+atlas = ExtResource("1_6b71h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmuox"]
+atlas = ExtResource("1_6b71h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05sfd"]
+atlas = ExtResource("1_6b71h")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_armbx"]
+atlas = ExtResource("1_6b71h")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hc0el"]
+atlas = ExtResource("1_6b71h")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ily8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5q4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmuox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05sfd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_armbx")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_hc0el")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="colletable_fish" type="Area2D"]
+script = ExtResource("1_ovq8m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ytauf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7ily8")
+autoplay = "default"
+frame_progress = 0.504769
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

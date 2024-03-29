@@ -281,16 +281,14 @@ wait_time = 0.5
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 scale = Vector2(1, 1)
-target_position = Vector2(-10, 50)
+target_position = Vector2(-10.4, 49.6)
 
 [node name="RayCast2D3" type="RayCast2D" parent="."]
 scale = Vector2(1, 1)
-target_position = Vector2(10, 50)
+target_position = Vector2(9.6, 49.6)
 
 [node name="view_field" type="Polygon2D" parent="."]
-color = Color(0.666667, 0.133333, 0, 1)
-antialiased = true
-polygon = PackedVector2Array(0, 0, -25, 50, 0, 55, 25, 50)
+polygon = PackedVector2Array(0, 0, -25, 50, 25, 50)
 
 [connection signal="body_entered" from="detect_area_1" to="." method="_on_detect_area_1_body_entered"]
 [connection signal="body_exited" from="detect_area_1" to="." method="_on_detect_area_1_body_exited"]

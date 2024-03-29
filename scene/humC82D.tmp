@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bj1dkayjdldg1"]
+[gd_scene load_steps=37 format=3 uid="uid://bj1dkayjdldg1"]
 
 [ext_resource type="Script" path="res://scripts/human.gd" id="1_yf2jl"]
 [ext_resource type="Texture2D" uid="uid://bm174k5j5utyf" path="res://art/Modern tiles_Free/Characters_free/Adam_16x16.png" id="1_yrsl0"]
@@ -244,6 +244,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fqyp"]
 radius = 6.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uq5rl"]
+size = Vector2(20, 74.8)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_x11nb"]
 radius = 24.8516
 
@@ -267,6 +270,12 @@ shape = SubResource("CircleShape2D_3fqyp")
 
 [node name="detect_area_1" type="Area2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detect_area_1"]
+position = Vector2(0, 30)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_uq5rl")
+debug_color = Color(0.705882, 0.247059, 0.027451, 0.419608)
+
 [node name="detect_area_2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detect_area_2"]
@@ -276,21 +285,6 @@ debug_color = Color(0.513726, 0.0313726, 0, 0.419608)
 
 [node name="find_timer" type="Timer" parent="."]
 wait_time = 0.5
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-
-[node name="RayCast2D2" type="RayCast2D" parent="."]
-scale = Vector2(1, 1)
-target_position = Vector2(-10, 50)
-
-[node name="RayCast2D3" type="RayCast2D" parent="."]
-scale = Vector2(1, 1)
-target_position = Vector2(10, 50)
-
-[node name="view_field" type="Polygon2D" parent="."]
-color = Color(0.666667, 0.133333, 0, 1)
-antialiased = true
-polygon = PackedVector2Array(0, 0, -25, 50, 0, 55, 25, 50)
 
 [connection signal="body_entered" from="detect_area_1" to="." method="_on_detect_area_1_body_entered"]
 [connection signal="body_exited" from="detect_area_1" to="." method="_on_detect_area_1_body_exited"]
