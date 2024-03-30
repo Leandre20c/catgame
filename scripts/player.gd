@@ -4,8 +4,36 @@ var speed = 100
 
 var player_stat
 
+var currentSkinIndex = 0
+var skins = []
+
+
 func _ready():
-	pass
+	currentSkinIndex = EventManager.skin_index
+	# Remplissez le tableau skins avec toutes les skins disponibles
+	skins.append($peach_0)
+	skins.append($grey_2)
+	skins.append($seal_point_0)
+	# Cachez toutes les skins sauf la première
+	for i in range(len(skins)):
+		skins[i].visible = false
+	
+	skins[currentSkinIndex].visible = true
+
+
+func changeSkin(newSkinIndex):
+	# Vérifiez si l'index de la nouvelle skin est valide
+		if newSkinIndex < 0 or newSkinIndex >= skins.size():
+			return
+
+		# Cachez l'ancienne skin
+		skins[currentSkinIndex].visible = false
+
+		# Affichez la nouvelle skin
+		skins[newSkinIndex].visible = true
+
+		# Mettez à jour l'index de la skin actuelle
+		currentSkinIndex = newSkinIndex
 
 func _physics_process(delta):
 	var direction = Input.get_vector('left', 'right', 'up', 'down')
@@ -29,50 +57,61 @@ func _physics_process(delta):
 func play_anim(dir):
 	if dir.y == -1:
 		if player_stat == 'walking':
-			$AnimatedSprite2D.play('n_walk')
+			skins[currentSkinIndex].play('n_walk')
 		if player_stat == 'running':
-			$AnimatedSprite2D.play('n_run')
+			skins[currentSkinIndex].play('n_run')
 	elif dir.x == 1:
 		if player_stat == 'walking':
-			$AnimatedSprite2D.play('e_walk')
+			skins[currentSkinIndex].play('e_walk')
 		if player_stat == 'running':
-			$AnimatedSprite2D.play('e_run')
+			skins[currentSkinIndex].play('e_run')
 	elif dir.y == 1:
 		if player_stat == 'walking':
-			$AnimatedSprite2D.play('s_walk')
+			skins[currentSkinIndex].play('s_walk')
 		if player_stat == 'running':
-			$AnimatedSprite2D.play('s_run')
+			skins[currentSkinIndex].play('s_run')
 	elif dir.x == -1:
 		if player_stat == 'walking':
-			$AnimatedSprite2D.play('w_walk')
+			skins[currentSkinIndex].play('w_walk')
 		if player_stat == 'running':
-			$AnimatedSprite2D.play('w_run')
+			skins[currentSkinIndex].play('w_run')
 	
 	elif dir.x > 0.5 and dir.y < -0.5:
 		if player_stat == 'walking':
-			$AnimatedSprite2D.play('ne_walk')
+			skins[currentSkinIndex].play('ne_walk')
 		if player_stat == 'running':
-			$AnimatedSprite2D.play('ne_run')
+			skins[currentSkinIndex].play('ne_run')
 	elif dir.x > 0.5 and dir.y > 0.5:
 		if player_stat == 'walking':
-			$AnimatedSprite2D.play('se_walk')
+			skins[currentSkinIndex].play('se_walk')
 		if player_stat == 'running':
-			$AnimatedSprite2D.play('se_run')
+			skins[currentSkinIndex].play('se_run')
 	elif dir.x < -0.5 and dir.y < -0.5:
 		if player_stat == 'walking':
-			$AnimatedSprite2D.play('nw_walk')
+			skins[currentSkinIndex].play('nw_walk')
 		if player_stat == 'running':
-			$AnimatedSprite2D.play('nw_run')
+			skins[currentSkinIndex].play('nw_run')
 	elif dir.x < -0.5 and dir.y > 0.5:
 		if player_stat == 'walking':
-			$AnimatedSprite2D.play('sw_walk')
+			skins[currentSkinIndex].play('sw_walk')
 		if player_stat == 'running':
-			$AnimatedSprite2D.play('sw_run')
+			skins[currentSkinIndex].play('sw_run')
 	else:
-		$AnimatedSprite2D.animation = 'idle'
+		skins[currentSkinIndex].animation = 'idle'
 
 func founded():
 	queue_free()
+	get_tree().change_scene_to_file("res://scene/menus/death_menu.tscn")
 
 func _on_human_player_detected(state):
 	founded()
+	
+
+
+func _on_footstep_timer_timeout():
+	if player_stat == 'running':
+		$footstep_sound.pitch_scale = randf_range(0.8, 1.2)
+		$footstep_sound.play()
+		$footstep_sound.pitch_scale = randf_range(0.6, 1.4)
+		$footstep_sound.play()
+	$footstepTimer.start()

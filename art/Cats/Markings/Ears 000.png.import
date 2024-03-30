@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cevbae8s2as87"
-path="res://.godot/imported/grey_2.png-94aed9e80b025adac859e4dcaed8dcd6.ctex"
+uid="uid://duhb05h7ex2rb"
+path="res://.godot/imported/Ears 000.png-3f55a7ba9326585686942af889fcbde5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/grey_2.png"
-dest_files=["res://.godot/imported/grey_2.png-94aed9e80b025adac859e4dcaed8dcd6.ctex"]
+source_file="res://art/Cats/Markings/Ears 000.png"
+dest_files=["res://.godot/imported/Ears 000.png-3f55a7ba9326585686942af889fcbde5.ctex"]
 
 [params]
 

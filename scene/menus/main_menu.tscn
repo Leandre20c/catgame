@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxbun04ykoyri"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_e31d2"]
+[ext_resource type="PackedScene" uid="uid://dlyn7itp10d68" path="res://scene/player.tscn" id="2_fuwlo"]
+[ext_resource type="FontFile" uid="uid://bi70jq8qqtv66" path="res://art/Daydream.ttf" id="2_jlqgx"]
+
+[sub_resource type="Theme" id="Theme_td2i8"]
+default_font = ExtResource("2_jlqgx")
+default_font_size = 22
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e31d2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.513726, 0.27451, 0.188235, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_td2i8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Game title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 23
+theme_override_font_sizes/font_size = 50
+text = "DO NOT SEE ME"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Seperator2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Play"
+flat = true
+
+[node name="Levels" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Levels
+"
+flat = true
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Options"
+flat = true
+
+[node name="Skins" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Skins"
+flat = true
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 8
+text = "Quit"
+flat = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 325)
+
+[node name="player" parent="." instance=ExtResource("2_fuwlo")]
+z_index = 1
+position = Vector2(274, 476)
+scale = Vector2(10.341, 10.341)
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Skins" to="." method="_on_skins_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

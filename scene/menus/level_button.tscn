@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr1bid1qrbib7"]
+
+[ext_resource type="FontFile" uid="uid://bi70jq8qqtv66" path="res://art/Daydream.ttf" id="1_g3srn"]
+[ext_resource type="Script" path="res://scene/menus/skin_change/change_skin_button.gd" id="2_sy787"]
+
+[sub_resource type="Theme" id="Theme_kacrr"]
+default_font = ExtResource("1_g3srn")
+default_font_size = 70
+
+[node name="LevelButton" type="Button"]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -522.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kacrr")
+text = "1"
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_sy787")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

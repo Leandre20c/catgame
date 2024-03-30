@@ -2851,9 +2851,9 @@ sources/1 = SubResource("TileSetAtlasSource_wc7bx")
 
 [sub_resource type="Curve2D" id="Curve2D_cm5uh"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 217, 128, 0, 0, 0, 0, 346, 127, 0, 0, 0, 0, 348, 83, 0, 0, 0, 0, 379, 85, 0, 0, 0, 0, 402, 112, 0, 0, 0, 0, 419, 174, 0, 0, 0, 0, 411, 236)
+"points": PackedVector2Array(0, 0, 0, 0, 217, 128, 0, 0, 0, 0, 346, 127, 0, 0, 0, 0, 348, 83, 0, 0, 0, 0, 379, 85, 0, 0, 0, 0, 402, 112, 0, 0, 0, 0, 419, 174, 0, 0, 0, 0, 411, 236, 0, 0, 0, 0, 414, 174, 0, 0, 0, 0, 398, 116, 0, 0, 0, 0, 379, 90, 0, 0, 0, 0, 353, 88, 0, 0, 0, 0, 349, 133, 0, 0, 0, 0, 215, 134)
 }
-point_count = 7
+point_count = 13
 
 [sub_resource type="Curve2D" id="Curve2D_ah578"]
 _data = {
@@ -2898,6 +2898,11 @@ layer_5/tile_data = PackedInt32Array(786447, 1, 40, 720909, 1, 49, 720918, 78643
 [node name="player" parent="." instance=ExtResource("4_i0qtu")]
 position = Vector2(197, 366)
 
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(3, 3)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
 [node name="collectables group" type="Node" parent="."]
 
 [node name="colletable_fish" parent="collectables group" instance=ExtResource("7_nkaic")]
@@ -2917,13 +2922,14 @@ curve = SubResource("Curve2D_cm5uh")
 [node name="enemy_follow_path2" type="PathFollow2D" parent="path group/Path2D2"]
 z_index = -2
 position = Vector2(414.971, 205.223)
-rotation = 0.00892834
+rotation = 1.69912
 progress = 335.352
 rotates = false
 script = ExtResource("5_d1jin")
 
 [node name="human" parent="path group/Path2D2/enemy_follow_path2" instance=ExtResource("5_7fav2")]
-z_index = 0
+position = Vector2(0.895233, 0.8638)
+rotation = -1.69912
 
 [node name="Path2D" type="Path2D" parent="path group"]
 curve = SubResource("Curve2D_ah578")
@@ -2931,13 +2937,13 @@ curve = SubResource("Curve2D_ah578")
 [node name="enemy_follow_path" type="PathFollow2D" parent="path group/Path2D"]
 z_index = -2
 position = Vector2(92, 145)
-rotation = 0.00892834
+rotation = -1.54611
 rotates = false
-cubic_interp = false
 script = ExtResource("5_d1jin")
 
 [node name="human" parent="path group/Path2D/enemy_follow_path" instance=ExtResource("5_7fav2")]
-z_index = 0
+position = Vector2(-1.97473, 1.04911)
+rotation = 1.54611
 
 [node name="Path2D3" type="Path2D" parent="path group"]
 curve = SubResource("Curve2D_82mol")
@@ -2949,7 +2955,6 @@ rotates = false
 script = ExtResource("5_d1jin")
 
 [node name="human" parent="path group/Path2D3/PathFollow2D" instance=ExtResource("5_7fav2")]
-z_index = 0
 position = Vector2(1.90735e-05, 0)
 rotation = -0.469985
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bmaoyns2v55e0"]
+[gd_scene load_steps=11 format=3 uid="uid://bmaoyns2v55e0"]
 
 [ext_resource type="Texture2D" uid="uid://bdwcrugqoa0vb" path="res://art/fish_sprite_sheet.png" id="1_6b71h"]
 [ext_resource type="Script" path="res://scripts/colletable_fish.gd" id="1_ovq8m"]
+[ext_resource type="AudioStream" uid="uid://uvf16a6ptxj8" path="res://art/sound/fish_collect.wav" id="3_i4dkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytauf"]
 size = Vector2(14, 7)
@@ -60,5 +61,9 @@ shape = SubResource("RectangleShape2D_ytauf")
 sprite_frames = SubResource("SpriteFrames_7ily8")
 autoplay = "default"
 frame_progress = 0.504769
+
+[node name="collected" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_i4dkl")
+volume_db = 10.105
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

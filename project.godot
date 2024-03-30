@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="cat game"
-run/main_scene="res://scene/level_1.tscn"
+run/main_scene="res://scene/menus/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://art/icon.svg"
+
+[autoload]
+
+EventManager="*res://scripts/eventManager.gd"
 
 [display]
 

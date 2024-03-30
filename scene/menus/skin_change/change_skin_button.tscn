@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cohi6i785nn7d"]
+
+[ext_resource type="Texture2D" uid="uid://cvyslafh4ykci" path="res://art/Cats/icons/undefined.png" id="1_lvnim"]
+[ext_resource type="Script" path="res://scene/menus/skin_change/change_skin_button.gd" id="2_1yqki"]
+
+[node name="SkinButton" type="Button"]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -522.0
+grow_horizontal = 2
+grow_vertical = 2
+icon = ExtResource("1_lvnim")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("2_1yqki")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

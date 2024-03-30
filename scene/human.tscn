@@ -1,7 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://bj1dkayjdldg1"]
+[gd_scene load_steps=38 format=3 uid="uid://bj1dkayjdldg1"]
 
 [ext_resource type="Script" path="res://scripts/human.gd" id="1_yf2jl"]
 [ext_resource type="Texture2D" uid="uid://bm174k5j5utyf" path="res://art/Modern tiles_Free/Characters_free/Adam_16x16.png" id="1_yrsl0"]
+[ext_resource type="Texture2D" uid="uid://domv846b0ylvy" path="res://art/progress_circle_under.png" id="3_awyxy"]
+[ext_resource type="Texture2D" uid="uid://dnfoayh006o7j" path="res://art/progress_circle_over.png" id="4_t6h6c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iwrae"]
 atlas = ExtResource("1_yrsl0")
@@ -245,10 +247,9 @@ animations = [{
 radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x11nb"]
-radius = 24.8516
+radius = 34.4093
 
 [node name="human" type="CharacterBody2D"]
-z_index = -2
 z_as_relative = false
 y_sort_enabled = true
 scale = Vector2(1.25, 1.25)
@@ -265,35 +266,62 @@ frame_progress = 0.968981
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_3fqyp")
 
-[node name="detect_area_1" type="Area2D" parent="."]
-
 [node name="detect_area_2" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="detect_area_2"]
-position = Vector2(0, -9.6)
+position = Vector2(0, -0.800001)
 shape = SubResource("CircleShape2D_x11nb")
 debug_color = Color(0.513726, 0.0313726, 0, 0.419608)
 
 [node name="find_timer" type="Timer" parent="."]
-wait_time = 0.5
+process_callback = 0
+one_shot = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 54.4)
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
-scale = Vector2(1, 1)
-target_position = Vector2(-10, 50)
+target_position = Vector2(-24.8, 49.6)
 
 [node name="RayCast2D3" type="RayCast2D" parent="."]
-scale = Vector2(1, 1)
-target_position = Vector2(10, 50)
+target_position = Vector2(24.8, 49.6)
 
 [node name="view_field" type="Polygon2D" parent="."]
-color = Color(0.666667, 0.133333, 0, 1)
+color = Color(0.666667, 0.133333, 0, 0.470588)
 antialiased = true
 polygon = PackedVector2Array(0, 0, -25, 50, 0, 55, 25, 50)
 
-[connection signal="body_entered" from="detect_area_1" to="." method="_on_detect_area_1_body_entered"]
-[connection signal="body_exited" from="detect_area_1" to="." method="_on_detect_area_1_body_exited"]
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+target_position = Vector2(-12.8, 52)
+
+[node name="RayCast2D5" type="RayCast2D" parent="."]
+target_position = Vector2(12, 52)
+
+[node name="RayCast2D6" type="RayCast2D" parent="."]
+target_position = Vector2(19.2, 51.2)
+
+[node name="RayCast2D7" type="RayCast2D" parent="."]
+target_position = Vector2(-5.6, 53.6)
+
+[node name="RayCast2D8" type="RayCast2D" parent="."]
+target_position = Vector2(6.4, 53.6)
+
+[node name="RayCast2D9" type="RayCast2D" parent="."]
+target_position = Vector2(-18.4, 50.4)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+modulate = Color(1, 1, 1, 0.698039)
+z_index = 1
+offset_left = -6.4
+offset_top = -28.0
+offset_right = 493.6
+offset_bottom = 472.0
+scale = Vector2(0.023318, 0.023318)
+value = 100.0
+fill_mode = 4
+texture_under = ExtResource("3_awyxy")
+texture_progress = ExtResource("4_t6h6c")
+
 [connection signal="body_entered" from="detect_area_2" to="." method="_on_detect_area_2_body_entered"]
 [connection signal="body_exited" from="detect_area_2" to="." method="_on_detect_area_2_body_exited"]
 [connection signal="timeout" from="find_timer" to="." method="_on_find_timer_timeout"]

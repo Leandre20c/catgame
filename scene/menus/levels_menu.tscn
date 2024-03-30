@@ -1,0 +1,170 @@
+[gd_scene load_steps=5 format=3 uid="uid://y8ko0fk5yjo4"]
+
+[ext_resource type="Script" path="res://scene/menus/skin_change/skin_changer_menu.gd" id="1_lngkd"]
+[ext_resource type="PackedScene" uid="uid://dr1bid1qrbib7" path="res://scene/menus/level_button.tscn" id="2_3h60k"]
+[ext_resource type="FontFile" uid="uid://bi70jq8qqtv66" path="res://art/Daydream.ttf" id="10_bbnfw"]
+
+[sub_resource type="Theme" id="Theme_p72hv"]
+default_font = ExtResource("10_bbnfw")
+
+[node name="skin_changer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lngkd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.513726, 0.27451, 0.188235, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_right = -11.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 13
+theme_override_constants/v_separation = 13
+columns = 7
+
+[node name="LevelButton" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "2"
+index = 2
+
+[node name="LevelButton3" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "3"
+index = 3
+
+[node name="LevelButton4" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "4"
+index = 4
+
+[node name="LevelButton5" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "5"
+index = 5
+
+[node name="LevelButton6" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "6"
+index = 6
+
+[node name="LevelButton7" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "7"
+index = 7
+
+[node name="LevelButton8" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "8"
+index = 8
+
+[node name="LevelButton9" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "9"
+index = 9
+
+[node name="LevelButton10" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "10"
+index = 10
+
+[node name="LevelButton11" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "11"
+index = 11
+
+[node name="LevelButton12" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "12"
+index = 12
+
+[node name="LevelButton13" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "13"
+index = 13
+
+[node name="LevelButton14" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "14"
+
+[node name="LevelButton15" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "15"
+
+[node name="LevelButton16" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "16"
+
+[node name="LevelButton17" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "17"
+index = 17
+
+[node name="LevelButton18" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "18"
+index = 18
+
+[node name="LevelButton19" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "19"
+
+[node name="LevelButton20" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "20"
+
+[node name="LevelButton21" parent="NinePatchRect/GridContainer" instance=ExtResource("2_3h60k")]
+layout_mode = 2
+text = "21
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -546.0
+offset_top = 30.0
+offset_right = -470.0
+offset_bottom = 61.0
+grow_horizontal = 2
+scale = Vector2(1.7858, 1.7858)
+theme = SubResource("Theme_p72hv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

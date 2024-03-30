@@ -1,0 +1,150 @@
+[gd_scene load_steps=12 format=3 uid="uid://o61t75ug5j7j"]
+
+[ext_resource type="Script" path="res://scene/menus/skin_change/skin_changer_menu.gd" id="1_1k35o"]
+[ext_resource type="PackedScene" uid="uid://cohi6i785nn7d" path="res://scene/menus/skin_change/change_skin_button.tscn" id="1_oqmij"]
+[ext_resource type="Texture2D" uid="uid://b8n7vpp5dnwt4" path="res://art/Cats/icons/ghost_0.png" id="2_j26ae"]
+[ext_resource type="Texture2D" uid="uid://cdjn6pw2v85kb" path="res://art/Cats/icons/grey_2.png" id="3_g8t5h"]
+[ext_resource type="Texture2D" uid="uid://cusngu80yhnqy" path="res://art/Cats/icons/pink_0.png" id="3_lk331"]
+[ext_resource type="Texture2D" uid="uid://ceytnyiiw1ido" path="res://art/Cats/icons/peach_0.png" id="4_03bdd"]
+[ext_resource type="Texture2D" uid="uid://cifnte45pu3iw" path="res://art/Cats/icons/game_boy_0.png" id="5_my0a2"]
+[ext_resource type="Texture2D" uid="uid://bq4ynlra705cl" path="res://art/Cats/icons/game_boy_1.png" id="6_vucbn"]
+[ext_resource type="Texture2D" uid="uid://b0yja2dvejdgk" path="res://art/Cats/icons/seal_point_0.png" id="8_kqsge"]
+[ext_resource type="FontFile" uid="uid://bi70jq8qqtv66" path="res://art/Daydream.ttf" id="9_prjk2"]
+
+[sub_resource type="Theme" id="Theme_p72hv"]
+default_font = ExtResource("9_prjk2")
+
+[node name="skin_changer" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1k35o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.513726, 0.27451, 0.188235, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_right = -11.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 13
+theme_override_constants/v_separation = 13
+columns = 7
+
+[node name="grey_0" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+icon = ExtResource("3_g8t5h")
+
+[node name="ghost_0" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+icon = ExtResource("2_j26ae")
+
+[node name="pink-0" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+icon = ExtResource("3_lk331")
+
+[node name="peach" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+icon = ExtResource("4_03bdd")
+
+[node name="gameboy0" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+icon = ExtResource("5_my0a2")
+
+[node name="gameboy1" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+icon = ExtResource("6_vucbn")
+
+[node name="SkinButton7" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton8" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+icon = ExtResource("8_kqsge")
+index = 2
+
+[node name="SkinButton9" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton10" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton11" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton12" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton13" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton14" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton15" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton16" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton17" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton18" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton19" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton20" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="SkinButton21" parent="NinePatchRect/GridContainer" instance=ExtResource("1_oqmij")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -546.0
+offset_top = 30.0
+offset_right = -470.0
+offset_bottom = 61.0
+grow_horizontal = 2
+scale = Vector2(1.7858, 1.7858)
+theme = SubResource("Theme_p72hv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
